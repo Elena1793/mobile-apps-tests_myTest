@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'mobile-apps-tests'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.appium:java-client:7.3.0'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+test {
+    useTestNG {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng.xml'
+    }
+}

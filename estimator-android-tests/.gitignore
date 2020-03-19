@@ -1,0 +1,4 @@
+# Gradle files
+/build/
+/.gradle/
+/.idea/
