@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests_main.iml" group="estimator-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests_test.iml" group="estimator-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests_main.iml" group="inventory-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests_test.iml" group="inventory-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mobile-apps-tests.iml" filepath="$PROJECT_DIR$/.idea/mobile-apps-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests_main.iml" group="scenario-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests_test.iml" group="scenario-android-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-web-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-web-tests_main.iml" group="scenario-web-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-web-tests_test.iml" group="scenario-web-tests" />
+    </modules>
+  </component>
+</project>

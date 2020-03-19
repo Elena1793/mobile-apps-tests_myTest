@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="eBayTest_main" target="1.8" />
+      <module name="eBayTest_test" target="1.8" />
+      <module name="estimator-android-tests_main" target="1.8" />
+      <module name="estimator-android-tests_test" target="1.8" />
+      <module name="inventory-android-tests_main" target="1.8" />
+      <module name="inventory-android-tests_test" target="1.8" />
+      <module name="scenario-android-tests_main" target="1.8" />
+      <module name="scenario-android-tests_test" target="1.8" />
+      <module name="scenario-web-tests_main" target="1.8" />
+      <module name="scenario-web-tests_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
