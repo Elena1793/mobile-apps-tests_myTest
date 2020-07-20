@@ -3,6 +3,8 @@ package com.web;
 import com.manager.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
 
 public class TestBase {
 
@@ -13,8 +15,8 @@ public class TestBase {
         app.start();
     }
 
-//    @AfterClass
-//    public void tearDown(){
-//        app.stop();
-//    }
+    @AfterClass
+    public void tearDown(){
+        app.stop();
+    }
 }

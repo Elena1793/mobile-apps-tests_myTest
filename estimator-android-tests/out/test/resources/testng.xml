@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="InventoryRegressionTests" verbose="1" >
+    <test name="Inventory" >
+        <classes>
+            <class name="com.estimator.tests.OpenAppTest" />
+            <class name="com.estimator.tests.CreateSurveyTest" />
+            <class name="com.estimator.tests.DownloadSurveyTest" />
+            <class name="com.estimator.tests.UploadSurveyTest" />
+        </classes>
+    </test>
+</suite>

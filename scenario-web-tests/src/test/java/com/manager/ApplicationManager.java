@@ -1,15 +1,11 @@
 package com.manager;
 
-import com.google.common.io.Files;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -20,7 +16,7 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         openSite("https://mfcdev.voxme.com/Account/Login");
-        login("testuser1", "testuser1");
+        login("testuser4", "Testuser44");
     }
 
     public void stop() {
@@ -136,7 +132,7 @@ public class ApplicationManager {
     }
 
     public void clickOnOperationsButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         if(isElementPresent(By.xpath("//a[@key='ClientFileMenu_Transaction_ClientFileGrid_GET_Menu.ClientFile.Operations_']"))){
         click(By.xpath("//a[@key='ClientFileMenu_Transaction_ClientFileGrid_GET_Menu.ClientFile.Operations_']"));
         }else
@@ -144,7 +140,7 @@ public class ApplicationManager {
     }
 
     public void clickOnTheNewOperationButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         if(isElementPresent(By.xpath("//ul[@id='newOperation']"))) {
             click(By.xpath("//ul[@id='newOperation']"));
         }else
@@ -152,23 +148,24 @@ public class ApplicationManager {
     }
 
     public void clickOnAgentDropDown() {
-        click(By.xpath("//*[@aria-controls='agAgent_listbox']"));
+        click(By.name("agAgent_input"));
      }
 
     public void selectAgent() {
-        type(By.xpath("//*[@aria-owns='agAgent_listbox']"),"Anton Nakonechnyi" );
+        type(By.xpath("//*[@aria-owns='agAgent_listbox']"),"Anton Nakonechnyi");
     }
 
-    public void clickOnAgentContactDropDown() {
+    public void clickOnAgentContactDropDown() throws InterruptedException {
         click(By.xpath("//*[@aria-controls='agAgentContact_listbox']"));
+        Thread.sleep(1000);
     }
 
-    public void selectAgentContact() {
+    public void selectAgentContact() throws InterruptedException {
         click(By.xpath("//li[contains(text(),'Anton Nakonechnyy')]"));
     }
 
     public void fillRefField() {
-        type(By.xpath("//*[@id='agRef']"), "1234");
+        type(By.xpath("//*[@id='agRef']"), "55555");
     }
 
     public void fillFirstNameTransfereeContactField() {

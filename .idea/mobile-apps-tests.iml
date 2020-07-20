@@ -6,5 +6,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="selenium-server-standalone-3.141.59" level="project" />
+    <orderEntry type="module" module-name="scenario-web-tests_test" />
+    <orderEntry type="module" module-name="scenario-android-tests_test" />
   </component>
 </module>

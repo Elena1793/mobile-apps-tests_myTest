@@ -31,8 +31,8 @@ public class TestBase {
         logger.info("Stop test " + m.getName());
     }
 
-//    @AfterSuite
-//    public void tearDown() {
-//        app.stop();
-//    }
+    @AfterSuite
+    public void tearDown() {
+        app.stop();
+    }
 }

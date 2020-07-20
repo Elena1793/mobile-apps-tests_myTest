@@ -6,7 +6,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../estimator-android-tests/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../estimator-android-tests/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../estimator-android-tests/src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../estimator-android-tests/src/main/java" isTestSource="false" />

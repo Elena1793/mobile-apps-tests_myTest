@@ -4,9 +4,6 @@
     <test name="Inventory" >
         <classes>
             <class name="com.estimator.tests.OpenAppTest" />
-            <class name="com.estimator.tests.CreateSurveyTest" />
-            <class name="com.estimator.tests.DownloadSurveyTest" />
-            <class name="com.estimator.tests.UploadSurveyTest" />
         </classes>
     </test>
 </suite>

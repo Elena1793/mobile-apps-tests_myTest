@@ -3,10 +3,7 @@
 <suite name="InventoryRegressionTests" verbose="1" >
     <test name="Inventory" >
         <classes>
-            <class name="com.inventory.tests.OpenAppTest" />
             <class name="com.inventory.tests.CreateInventoryTest" />
-            <class name="com.inventory.tests.DownloadInventoryTest" />
-            <class name="com.inventory.tests.UploadInventoryTest" />
         </classes>
     </test>
 </suite>

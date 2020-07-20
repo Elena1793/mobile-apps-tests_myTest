@@ -60,7 +60,7 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-          //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
+            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
         Thread.sleep(3000);
     }
 
@@ -303,7 +303,7 @@ public class ApplicationManager {
             Thread.sleep(5000);
         } else
             click(By.xpath("//*[@content-desc='Ещё']"));
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Inventory List']"));
+        //click(By.xpath("//*[contains(@resource-id,'title') and @text='Inventory List']")); - for Polina's device
     }
     //TODO
     public void clickOnTheAppliances() {
@@ -311,7 +311,7 @@ public class ApplicationManager {
             click(By.id("appliances"));
         } else
             click(By.xpath("//*[@content-desc='Ещё']"));
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Appliances']"));
+        //click(By.xpath("//*[contains(@resource-id,'title') and @text='Appliances']")); - for Polina's device
     }
 
     public void clickOnThePackers() {
@@ -414,9 +414,8 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-        Thread.sleep(5000);
-//            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
-//        Thread.sleep(10000);
+        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+        Thread.sleep(10000);
     }
     //TODO
     public void attachPhotoToTheNewSkid() throws InterruptedException {
@@ -425,8 +424,8 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-//            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
-//        Thread.sleep(5000);
+        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+        Thread.sleep(5000);
     }
     //TODO
     public void attachPhotoToTheDocumentSection() throws InterruptedException {
@@ -435,8 +434,8 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-//            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
-//        Thread.sleep(5000);
+        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+        Thread.sleep(5000);
     }
 
     public void selectAnItemFromInventory() {
@@ -532,5 +531,4 @@ public class ApplicationManager {
                 .moveTo(PointOption.point(0, scrollEnd))
                 .release().perform();
     }
-
 }
