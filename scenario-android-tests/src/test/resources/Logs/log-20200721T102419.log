@@ -1,0 +1,2 @@
+10:25:23.656 [Test worker] INFO  com.web.TestBase - Start test DownloadPTSInvTest
+10:25:59.396 [Test worker] INFO  com.web.TestBase - Stop test DownloadPTSInvTest

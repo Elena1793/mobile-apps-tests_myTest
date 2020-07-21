@@ -41,7 +41,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Documents/mobile-apps-tests/inventory-android-tests/src/test/resources/Voxme_Inventory_Universal_v10.8_(Build 575).apk");
+        capabilities.setCapability("app", "C:/Users/Nikita/git/mobile-apps-tests/inventory-android-tests/src/test/resources/Voxme Inventory Universal_v10.10 (Build 593).apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
