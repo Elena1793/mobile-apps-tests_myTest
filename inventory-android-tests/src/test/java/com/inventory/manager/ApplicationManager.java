@@ -60,7 +60,7 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
+            //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
         Thread.sleep(3000);
     }
 
@@ -302,16 +302,16 @@ public class ApplicationManager {
             click(By.id("inventory_summary"));
             Thread.sleep(5000);
         } else
-            click(By.xpath("//*[@content-desc='Ещё']"));
-        //click(By.xpath("//*[contains(@resource-id,'title') and @text='Inventory List']")); - for Polina's device
+            //click(By.xpath("//*[@content-desc='Ещё']"));
+        click(By.xpath("//*[contains(@resource-id,'title') and @text='Inventory List']")); // for Polina's device
     }
     //TODO
     public void clickOnTheAppliances() {
         if (isElementPresent(By.id("appliances"))) {
             click(By.id("appliances"));
         } else
-            click(By.xpath("//*[@content-desc='Ещё']"));
-        //click(By.xpath("//*[contains(@resource-id,'title') and @text='Appliances']")); - for Polina's device
+            //click(By.xpath("//*[@content-desc='Ещё']"));
+        click(By.xpath("//*[contains(@resource-id,'title') and @text='Appliances']")); // for Polina's device
     }
 
     public void clickOnThePackers() {
@@ -413,8 +413,8 @@ public class ApplicationManager {
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
-            click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+            //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
+        click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
         Thread.sleep(10000);
     }
     //TODO
@@ -423,8 +423,8 @@ public class ApplicationManager {
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
-            click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+            //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
+        click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
         Thread.sleep(5000);
     }
     //TODO
@@ -433,8 +433,8 @@ public class ApplicationManager {
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
-            click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); - for Polina's device
+            //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
+        click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
         Thread.sleep(5000);
     }
 

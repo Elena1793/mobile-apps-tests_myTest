@@ -1,6 +1,5 @@
 package com.manager;
 
-import com.google.common.io.Files;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -10,16 +9,11 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.MobileElement;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -46,7 +40,7 @@ public class ApplicationManager {
         capabilities.setCapability("app", "C:/Tools/Voxme Inventory Universal_v10.10 (Build 593).apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
     public void type(By locator, String text) {
@@ -59,17 +53,6 @@ public class ApplicationManager {
     public void waitForElement(long timeout, By locator) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-
-    public void screenshot() {
-        File tmp = driver.getScreenshotAs(OutputType.FILE);
-        File screenshot = new File("src/test/resources/Screenshots/screen" + System.currentTimeMillis() + ".png");
-        try {
-            Files.copy(tmp, screenshot);
-            System.out.println(screenshot);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void click(By locator) {
@@ -104,11 +87,6 @@ public class ApplicationManager {
         type(By.id("search_string"), inventoryRef);
         click(By.id("search_mfs"));
         Thread.sleep(1000);
-    }
-
-    public void selectFoundedInventory() {
-        click(By.id("mf_name"));
-        click(By.xpath("//*[contains(@resource-id,'button3') and @text='OK']"));
     }
 
     public void downloadFoundedInventory() {
@@ -147,7 +125,8 @@ public class ApplicationManager {
         click(By.xpath("//*[contains(@resource-id,'button3') and @text='OK']"));
     }
 
-    public void clickOnTheAddPieceButton() {
+    public void clickOnTheAddPieceButton() throws InterruptedException {
+        Thread.sleep(3000);
         click(By.id("add_piece"));
     }
 
@@ -274,9 +253,6 @@ public class ApplicationManager {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
                 + ".resourceId(\"android:id/text1\")).scrollIntoView("
                 + "new UiSelector().text(\"Pallet\"));").click();
-    }
-
-    public void clickToTheReturnUpButton() {
     }
 
     public void typeNewBarcodeNumber(String text) {

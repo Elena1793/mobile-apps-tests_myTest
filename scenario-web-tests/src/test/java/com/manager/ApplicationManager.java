@@ -165,7 +165,7 @@ public class ApplicationManager {
     }
 
     public void fillRefField() {
-        type(By.xpath("//*[@id='agRef']"), "666666");
+        type(By.xpath("//*[@id='agRef']"), "7777777");
     }
 
     public void fillFirstNameTransfereeContactField() {

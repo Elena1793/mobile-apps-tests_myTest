@@ -7,7 +7,7 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
     @Test
     public void DownloadPTSInvTest() throws InterruptedException {
         app.clickOnDownloadButton();
-        app.clickOnTheSearchInventory("666666");
+        app.clickOnTheSearchInventory("7777777");
         app.selectPickUpTransaction();
         app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
@@ -67,7 +67,7 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.returnBack();
         app.deselectSurveyFromDiscovery();
         app.clickOnDownloadButton();
-        app.clickOnTheSearchInventory("666666");
+        app.clickOnTheSearchInventory("7777777");
         app.selectWarehouseReceiveInTransaction();
         app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
@@ -78,16 +78,16 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.enterSkidLocation();
         app.returnBack();
         app.returnBack();
-        app.typeNewBarcodeNumber("2752-1-001");
+        app.typeNewBarcodeNumber("2787-1-1");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2752-1-002");
+        app.typeNewBarcodeNumber("2787-1-2");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2752-1-003");
+        app.typeNewBarcodeNumber("2787-1-3");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2752-1-004");
+        app.typeNewBarcodeNumber("2787-1-4");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
         app.clickOnTheOKButtonOnThePopUp();
