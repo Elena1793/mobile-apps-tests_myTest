@@ -10,8 +10,8 @@ public class CreateInventoryTest extends TestBase {
     @Test
     public void createNewInventory() throws InterruptedException, IOException {
         app.clickOnTheCreateNewInventoryButton();
-        app.type(By.id("inventory_name"),"Connor");
-        app.type(By.id("inventory_id"), "2189-1-1");
+        app.type(By.id("transfer_user_name"),"Connor");
+        app.type(By.id("job_id"), "2189-1-1");
         app.hideKeyboard();
         app.clickOnTheCreateButton();
         app.clickOnTheEditInventoryButton();

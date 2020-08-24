@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="PTS" verbose="1" >
+<suite name="InventoryRegressionTests" verbose="1" >
     <test name="Inventory" >
         <classes>
-
+            <class name="com.web.CreatePTSInvHandlingProcessInventory" />
         </classes>
     </test>
 </suite>

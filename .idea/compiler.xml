@@ -5,15 +5,25 @@
       <module name="eBayTest_main" target="1.8" />
       <module name="eBayTest_test" target="1.8" />
       <module name="estimator-android-tests" target="1.8" />
+      <module name="estimator-android-tests.main" target="1.8" />
+      <module name="estimator-android-tests.test" target="1.8" />
       <module name="estimator-android-tests_main" target="1.8" />
       <module name="estimator-android-tests_test" target="1.8" />
       <module name="inventory-android-tests" target="1.8" />
+      <module name="inventory-android-tests.main" target="1.8" />
+      <module name="inventory-android-tests.test" target="1.8" />
       <module name="inventory-android-tests_main" target="1.8" />
       <module name="inventory-android-tests_test" target="1.8" />
+      <module name="mobile-apps-tests.scenario-android-tests.main" target="1.8" />
+      <module name="mobile-apps-tests.scenario-android-tests.test" target="1.8" />
       <module name="scenario-android-tests" target="1.8" />
+      <module name="scenario-android-tests.main" target="1.8" />
+      <module name="scenario-android-tests.test" target="1.8" />
       <module name="scenario-android-tests_main" target="1.8" />
       <module name="scenario-android-tests_test" target="1.8" />
       <module name="scenario-web-tests" target="1.8" />
+      <module name="scenario-web-tests.main" target="1.8" />
+      <module name="scenario-web-tests.test" target="1.8" />
       <module name="scenario-web-tests_main" target="1.8" />
       <module name="scenario-web-tests_test" target="1.8" />
     </bytecodeTargetLevel>

@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../scenario-android-tests/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../scenario-android-tests/build" />
       <excludeFolder url="file://$MODULE_DIR$/../../scenario-android-tests/out" />
+      <excludeFolder url="file://$MODULE_DIR$/../../scenario-android-tests/src/test/resources/Logs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

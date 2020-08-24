@@ -37,7 +37,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/Voxme Inventory Universal_v10.10 (Build 593).apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.0_Build_607.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -111,10 +111,10 @@ public class ApplicationManager {
 
 
     public void selectPickUpTransaction() {
-        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Pickup']"))) {
-            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Pickup']"));
-        } else
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Pickup']"))) {
             click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Pickup']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Pickup']"));
     }
 
     //TODO
@@ -127,32 +127,38 @@ public class ApplicationManager {
 
     public void clickOnTheAddPieceButton() throws InterruptedException {
         Thread.sleep(3000);
-        click(By.id("add_piece"));
+        //click(By.id("add_piece"));
+        click(By.id("fab_add"));
     }
 
     public void addItemIntoNewFirstPiece() {
-        click(By.id("add_item_2"));
+        click(By.xpath("//*[contains(@resource-id,'add_item') and @text='Tap to add item']"));
+        //click(By.id("add_item_2"));
         click(By.id("search_text"));
         type(By.id("search_text"), "Chair Arm");
+        //type(By.id("search_text"), "Chair Arm");
         click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Chair Arm (20,00)']"));
     }
 
     public void addItemIntoNewSecondPiece() {
-        click(By.id("add_item_2"));
+        click(By.xpath("//*[contains(@resource-id,'add_item') and @text='Tap to add item']"));
+        //click(By.id("add_item_2"));
         click(By.id("search_text"));
         type(By.id("search_text"), "Cabinet");
         click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Cabinet (4,00)']"));
     }
 
     public void addItemIntoNewThirdPiece() {
-        click(By.id("add_item_2"));
+        click(By.xpath("//*[contains(@resource-id,'add_item') and @text='Tap to add item']"));
+        //click(By.id("add_item_2"));
         click(By.id("search_text"));
         type(By.id("search_text"), "Table");
         click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Table (10,00)']"));
     }
 
     public void addItemIntoNewFourthPiece() {
-        click(By.id("add_item_2"));
+        click(By.xpath("//*[contains(@resource-id,'add_item') and @text='Tap to add item']"));
+        //click(By.id("add_item_2"));
         click(By.id("search_text"));
         type(By.id("search_text"), "Canoe");
         click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Canoe (25,00)']"));

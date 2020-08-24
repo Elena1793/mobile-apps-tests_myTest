@@ -1,21 +1,44 @@
 package com.web;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class CreatePTSInvHandlingProcessInventory extends TestBase{
+
+    @DataProvider
+    public Iterator<Object[]> barcodes() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/barcodes.csv")));
+        String line = reader.readLine();
+        while(line!=null){
+            String[] split = line.split(";");
+            line = reader.readLine();
+        }
+        return list.iterator();
+    }
 
     @Test
     public void DownloadPTSInvTest() throws InterruptedException {
         app.clickOnDownloadButton();
         app.clickOnTheSearchInventory("7777777");
         app.selectPickUpTransaction();
-        app.clickOnTheOKButtonOnThePopUp();
+        //app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
+        app.swipeScreenDown();
         app.addItemIntoNewFirstPiece();
         app.returnBack();
         app.clickOnTheAddPieceButton();
+        app.swipeScreenDown();
         app.addItemIntoNewSecondPiece();
         app.returnToTheDiscoveryPage();
         app.clickOnTheReportInventoryButton();
@@ -31,8 +54,10 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnTheServerURLOKButton();
         app.clickOnTheOKButtonOnThePopUp();
         app.returnBack();
+
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
+        app.swipeScreenDown();
         app.addItemIntoNewThirdPiece();
         app.returnToTheDiscoveryPage();
         app.clickOnTheReportInventoryButton();
@@ -48,8 +73,10 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnTheServerURLOKButton();
         app.clickOnTheOKButtonOnThePopUp();
         app.returnBack();
+
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
+        app.swipeScreenDown();
         app.addItemIntoNewFourthPiece();
         app.returnToTheDiscoveryPage();
         app.clickOnTheReportInventoryButton();
@@ -69,7 +96,7 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnDownloadButton();
         app.clickOnTheSearchInventory("7777777");
         app.selectWarehouseReceiveInTransaction();
-        app.clickOnTheOKButtonOnThePopUp();
+        //app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
         app.clickOnTheCheckButtonOnTheDiscovery();
         app.clickOnTheBoxIconToCreateLU();
