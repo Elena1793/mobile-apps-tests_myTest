@@ -1,5 +1,6 @@
 package com.web;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -30,7 +31,7 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnDownloadButton();
         app.clickOnTheSearchInventory("7777777");
         app.selectPickUpTransaction();
-        //app.clickOnTheOKButtonOnThePopUp();
+//        //app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
@@ -54,7 +55,6 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnTheServerURLOKButton();
         app.clickOnTheOKButtonOnThePopUp();
         app.returnBack();
-
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
         app.swipeScreenDown();
@@ -73,7 +73,6 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnTheServerURLOKButton();
         app.clickOnTheOKButtonOnThePopUp();
         app.returnBack();
-
         app.clickOnTheEditInventoryButton();
         app.clickOnTheAddPieceButton();
         app.swipeScreenDown();
@@ -93,30 +92,77 @@ public class CreatePTSInvHandlingProcessInventory extends TestBase{
         app.clickOnTheOKButtonOnThePopUp();
         app.returnBack();
         app.deselectSurveyFromDiscovery();
+
         app.clickOnDownloadButton();
         app.clickOnTheSearchInventory("7777777");
         app.selectWarehouseReceiveInTransaction();
-        //app.clickOnTheOKButtonOnThePopUp();
+//        //app.clickOnTheOKButtonOnThePopUp();
         app.downloadFoundedInventory();
         app.clickOnTheCheckButtonOnTheDiscovery();
-        app.clickOnTheBoxIconToCreateLU();
+        app.clickOnTheTruckIconToCreateLU();
         app.clickOnTheAddSkidButton();
         app.clickOnTheSelectSkidDropDown();
+        app.swipeScreenDown();
+        app.selectSkid();
         app.enterSkidLocation();
         app.returnBack();
         app.returnBack();
-        app.typeNewBarcodeNumber("2787-1-1");
+        app.typeNewBarcodeNumber("2900-1 001");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2787-1-2");
+        app.typeNewBarcodeNumber("2900-1 002");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2787-1-3");
+        app.typeNewBarcodeNumber("2900-1 003");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
-        app.typeNewBarcodeNumber("2787-1-4");
+        app.typeNewBarcodeNumber("2900-1 004");
         app.hideKeyboard();
         app.clickOnTheCheckButton();
+        app.clickOnTheOKButtonOnThePopUp();
+        app.returnBack();
+        app.clickOnTheReportInventoryButton();
+        app.swipeScreenDown();
+        app.clickOnTheClientShipperButton();
+        app.createSignatureInTheInventory();
+        app.returnBack();
+        app.clickOnTheForemanDriverButton();
+        app.createSignatureInTheInventory();
+        app.returnBack();
+        app.swipeScreenUp();
+        app.clickOnTheUploadButton();
+        app.clickOnTheServerURLOKButton();
+        app.clickOnTheOKButtonOnThePopUp();
+        app.returnBack();
+        app.deselectSecondSurveyFromDiscovery();
+
+        app.clickOnDownloadButton();
+        app.clickOnTheSearchInventory("7777777");
+        app.selectWarehouseOutloadTransaction();
+        app.downloadFoundedInventory();
+        app.clickOnTheCheckButtonOnTheDiscovery();
+        app.clickOnTheNOButton();
+        app.clickOnTheStartButton();
+        app.clickOnTheTruckIconToCreateLU();
+        app.clickOnTheAddSkidButton();
+        app.clickOnTheSelectSkidDropDown();
+        app.returnBack();
+        app.typeNewBarcodeNumber("2900-1 001");
+        app.hideKeyboard();
+        app.clickOnTheCheckButton();
+        app.clickOnTheOKButton();
+        app.typeNewBarcodeNumber("2900-1 002");
+        app.hideKeyboard();
+        app.clickOnTheCheckButton();
+        app.clickOnTheOKButton();
+        app.typeNewBarcodeNumber("2900-1 003");
+        app.hideKeyboard();
+        app.clickOnTheCheckButton();
+        app.clickOnTheOKButton();
+        app.typeNewBarcodeNumber("2900-1 004");
+        app.hideKeyboard();
+        app.clickOnTheCheckButton();
+        app.clickOnTheOKButton();
         app.clickOnTheOKButtonOnThePopUp();
     }
 }

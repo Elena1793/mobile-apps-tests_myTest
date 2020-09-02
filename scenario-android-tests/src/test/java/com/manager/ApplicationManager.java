@@ -236,29 +236,34 @@ public class ApplicationManager {
     }
 
     public void selectWarehouseReceiveInTransaction() {
-        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Warehouse Receive-in']"))) {
-            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Warehouse Receive-in']"));
-        } else
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Warehouse Receive-in']"))) {
             click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Warehouse Receive-in']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Warehouse Receive-in']"));
     }
 
     public void clickOnTheCheckButton() {
         click(By.id("check_btn"));
     }
 
-    public void clickOnTheBoxIconToCreateLU() {
+    public void clickOnTheTruckIconToCreateLU() {
         click(By.id("loader"));
     }
 
     public void clickOnTheAddSkidButton() {
-        click(By.xpath("//*[contains(@resource-id, 'add_skid') and @text='+']"));
+        click(By.id("fab_skid_add"));
+        //click(By.xpath("//*[contains(@resource-id, 'add_skid') and @text='+']"));
     }
 
     public void clickOnTheSelectSkidDropDown() {
         click(By.id("skidType"));
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-                + ".resourceId(\"android:id/text1\")).scrollIntoView("
-                + "new UiSelector().text(\"Pallet\"));").click();
+//        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+//                + ".resourceId(\"android:id/text1\")).scrollIntoView("
+//                + "new UiSelector().text(\"Storage crate\"));").click();
+    }
+
+    public void selectSkid() {
+        click(By.xpath("//*[contains(@resource-id, 'text1') and @text='Storage crate']"));
     }
 
     public void typeNewBarcodeNumber(String text) {
@@ -278,10 +283,47 @@ public class ApplicationManager {
     }
 
     public void deselectSurveyFromDiscovery() {
-        click(By.xpath("//*[contains(@resource-id,'id') and @text='2752-1-1']"));
+        click(By.xpath("//*[contains(@resource-id,'id') and @text='2900-1-5']"));
+    }
+
+    public void deselectSecondSurveyFromDiscovery() {
+        click(By.xpath("//*[contains(@resource-id,'id') and @text='2900-1-6']"));
+    }
+
+    public void deselectThirdSurveyFromDiscovery() {
+        click(By.xpath("//*[contains(@resource-id,'id') and @text='2900-1-7']"));
     }
 
     public void clickOnTheServerURLOKButton() {
         click(By.xpath("//*[contains(@resource-id,'transit_ok_btn') and @text='OK']"));
+    }
+
+    public void clickOnTheOKButton() {
+        click(By.id("ok_label_btn1"));
+    }
+
+    public void clickOnTheNOButton() {
+        click(By.xpath("//*[contains(@resource-id,'button2') and @text='No']"));
+    }
+    public void clickOnTheYesButton() {
+        click(By.xpath("//*[contains(@resource-id,'button2') and @text='Yes']"));
+    }
+
+    public void selectWarehouseOutloadTransaction() {
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Warehouse Outload']"))) {
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Warehouse Outload']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Warehouse Outload']"));
+    }
+
+    public void selectDeliveryTransaction() {
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Delivery']"))) {
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Delivery']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'mf_type') and @text='Enum.TransactionType.Delivery']"));
+    }
+
+    public void clickOnTheStartButton() {
+        click(By.id("start_checking_btn"));
     }
 }

@@ -301,4 +301,9 @@ public class ApplicationManager {
         Thread.sleep(3000);
         click(By.xpath("//li[@trans-type='Enum.TransactionType.WarehouseOutload']"));
     }
+
+    public void selectDelivery() throws InterruptedException {
+        Thread.sleep(3000);
+        click(By.xpath("//li[@trans-type='Enum.TransactionType.Delivery']"));
+    }
 }

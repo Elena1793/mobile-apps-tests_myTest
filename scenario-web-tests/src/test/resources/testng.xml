@@ -4,6 +4,8 @@
     <test name="Inventory" >
         <classes>
             <class name="com.web.CreatePTSInvHandlingProcess" />
+            <class name="com.web.CreateJobTest" />
+            <class name="com.web.CreateRoadwayInvHandlingProcess" />
         </classes>
     </test>
 </suite>
