@@ -40,7 +40,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/Voxme_Estimator_Universal_v10.2 (Build 404).apk");
+        capabilities.setCapability("app", "C:/Tools/Voxme Estimator Universal_v10.2 (Build 404).apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
