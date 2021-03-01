@@ -374,10 +374,12 @@ public class ApplicationManager {
         Thread.sleep(1000);
     }
 
-    public void clickOnTheReportInventoryButton() {
-        //click(By.id("reportInventory"));
-        waitForElement(15, (By.id("fab_share")));
-        click(By.id("fab_share"));
+    public void clickOnTheReportInventoryButton() throws InterruptedException {
+        if (isElementPresent(By.id("reportInventory"))) {
+            click(By.id("reportInventory"));
+        } else
+            click(By.id("fab_share"));
+        Thread.sleep(5000);
     }
 
     public void clickOnTheClientShipperButton() throws InterruptedException {
