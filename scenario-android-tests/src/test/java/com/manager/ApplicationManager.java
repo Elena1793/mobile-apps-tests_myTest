@@ -37,7 +37,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.0_Build_607.apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.3_Build_629.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);

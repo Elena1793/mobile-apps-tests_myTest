@@ -23,7 +23,10 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.ofSeconds;
 
 public class ApplicationManager {
 
@@ -41,7 +44,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.0_Build_607.apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.3.3_Build_632.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -60,7 +63,7 @@ public class ApplicationManager {
             click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-            //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
+            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
         Thread.sleep(3000);
     }
 
@@ -93,11 +96,11 @@ public class ApplicationManager {
     }
 
     public void clickToTheReturnUpButton() throws InterruptedException {
-        if (isElementPresent(By.xpath("//*[@content-desc='Перейти вверх']"))) {
-            click(By.xpath("//*[@content-desc='Перейти вверх']"));
+        if (isElementPresent(By.xpath("//*[@content-desc='Navigate up']"))) {
+            click(By.xpath("//*[@content-desc='Navigate up']"));
             Thread.sleep(1000);
         } else
-            driver.findElement(By.xpath("//*[@content-desc='Navigate up']")).click();
+            driver.findElement(By.xpath("//*[@content-desc='Перейти вверх']")).click();
     }
 
     public void selectClientFromTheDiscovery() {
@@ -138,7 +141,8 @@ public class ApplicationManager {
 
     public void selectFoundedInventory() {
         click(By.id("mf_name"));
-        click(By.xpath("//*[contains(@resource-id,'button3') and @text='OK']"));
+        //click(By.xpath("//*[contains(@resource-id,'mf_name') and @text='Anton Nakonechnyi']"));
+
     }
 
     public void downloadFoundedInventory() {
@@ -174,7 +178,7 @@ public class ApplicationManager {
     }
 
     public void clickOnTheAddPieceButton() {
-        click(By.id("add_piece"));
+        click(By.id("fab_add"));
     }
 
     public void selectLocationForTheNewPiece() throws InterruptedException {
@@ -197,14 +201,14 @@ public class ApplicationManager {
     }
 
     public void addItemIntoNewPiece() {
-        click(By.id("add_item_2"));
+        click(By.id("add_item"));
         click(By.id("search_text"));
         type(By.id("search_text"), "Cabinet");
-        click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Cabinet (4,00)']"));
+        click(By.xpath("//*[contains(@resource-id,'item_name') and @text='Cabinet (4.00)']"));
     }
 
     public void showParametersOfTheItem() {
-        click(By.id("show_item"));
+        click(By.id("item_name"));
     }
 
     public void changeConditionOfNewItem() {
@@ -219,30 +223,33 @@ public class ApplicationManager {
         click(By.xpath("//*[contains(@resource-id,'text1') and @text='Others']"));
     }
 
+
     public void addConditionToTheNewItem() {
-        click(By.id("item_condition_selector"));
+        click(By.id("piece_item_condition"));
         click(By.xpath("//*[contains(@resource-id,'text1') and @text='Good']"));
+    }
+
+    public void addCommentToTheNewItem() {
+        click(By.id("detail_comment"));
+        type(By.id("detail_comment"), "CommentTEST");
+    }
+
+    public void addLocation() {
+        click(By.id("add_location_btn"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Left']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
-    public void addLocationToTheNewItem() {
-        click(By.id("item_location_selector"));
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Location1']"));
+    public void addCondition() {
+        click(By.id("add_condition_btn"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
-    }
-
-    public void clickOnTheRoomsButtonOnTheInventoryScreen() {
-        click(By.id("rooms"));
     }
 
     public void selectRoomWithItem() {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
                 + ".resourceId(\"com.voxme.inventory.tablet:id/roomSummaryList\")).scrollIntoView("
                 + "new UiSelector().text(\"Attic/Loft\"));").click();
-    }
-
-    public void clickOnTheShowRoomButtonOnTheRoomsScreen() {
-        click(By.xpath("//*[contains(@resource-id,'show_room') and @text='...']"));
     }
 
     public void fillDescriptionField() {
@@ -258,11 +265,11 @@ public class ApplicationManager {
     public void selectPropertyBeforePacking() {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
                 + ".resourceId(\"com.voxme.inventory.tablet:id/prop_name\")).scrollIntoView("
-                + "new UiSelector().text(\"Walls\"));").click();
+                + "new UiSelector().text(\"Floors\"));").click();
     }
 
     public void clickOnTheSelectConditionButtonOfPropertyBeforePacking() {
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Good']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
@@ -271,18 +278,19 @@ public class ApplicationManager {
     }
 
     public void clickOnPropertyConditionsFieldAfterPacking() {
-        waitForElement(10, By.xpath("//*[contains(@text, 'After Packing')]"));
-        click(By.xpath("//*[contains(@text, 'After Packing')]"));
+        //waitForElement(10, By.xpath("//*[contains(@text, 'After Packing')]"));
+        //click(By.xpath("//*[contains(@text, 'After Packing')]"));
+        click(By.xpath("//*[contains(@resource-id,'tabsText') and @text='After Packing']"));
     }
 
     public void selectPropertyAfterPacking() {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
                 + ".resourceId(\"com.voxme.inventory.tablet:id/prop_name\")).scrollIntoView("
-                + "new UiSelector().text(\"Walls\"));").click();
+                + "new UiSelector().text(\"Floors\"));").click();
     }
 
     public void clickOnTheSelectConditionButtonOfPropertyAfterPacking() {
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Good']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
@@ -300,26 +308,18 @@ public class ApplicationManager {
     public void clickOnTheInventoryList() throws InterruptedException {
         if (isElementPresent(By.id("inventory_summary"))) {
             click(By.id("inventory_summary"));
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } else
             //click(By.xpath("//*[@content-desc='Ещё']"));
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Inventory List']")); // for Polina's device
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Inventory List']")); // for Polina's device
     }
     //TODO
     public void clickOnTheAppliances() {
-        if (isElementPresent(By.id("appliances"))) {
-            click(By.id("appliances"));
-        } else
-            //click(By.xpath("//*[@content-desc='Ещё']"));
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Appliances']")); // for Polina's device
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Appliances']")); // for Polina's device
     }
 
     public void clickOnThePackers() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Packers']"));
-    }
-
-    public void clickOnTheLoader() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Loader']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Packers']"));
     }
 
     public void clickOnTheAddSkidButton() {
@@ -339,27 +339,29 @@ public class ApplicationManager {
     }
 
     public void clickOnTheCartonsSummary() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Cartons Summary']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Cartons Summary']"));
     }
 
     public void clickOnTheAdditionalMaterials() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Additional Materials']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Additional Materials']"));
     }
 
     public void clickOnTheServices() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Services']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Services']"));
     }
 
     public void clickOnTheAdditionalInfo() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Additional Info']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Additional Info']"));
     }
 
     public void clickOnTheDocuments() {
-        click(By.xpath("//*[contains(@resource-id,'title') and @text='Documents']"));
+        //click(By.xpath("//*[contains(@resource-id,'title') and @text='Documents']"));
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Documents']"));
     }
 
     public void clickOnTheAddDocumentButton() {
-        click(By.xpath("//*[contains(@resource-id,'add_doc') and @text='+']"));
+        //click(By.xpath("//*[contains(@resource-id,'add_doc') and @text='+']"));
+        click(By.id("add_doc"));
     }
 
     public void fillDocumentNameField() {
@@ -370,31 +372,38 @@ public class ApplicationManager {
     public void returnToTheDiscoveryPage() throws InterruptedException {
         driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
         Thread.sleep(1000);
-        driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
-        Thread.sleep(1000);
-        driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
-        Thread.sleep(1000);
-        driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
-        Thread.sleep(1000);
-        driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
     }
 
     public void clickOnTheReportInventoryButton() {
-        click(By.id("reportInventory"));
+        //click(By.id("reportInventory"));
+        waitForElement(15, (By.id("fab_share")));
+        click(By.id("fab_share"));
     }
 
-    public void clickOnTheClientShipperButton() {
-        waitForElement(15, (By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Sign']")));
-        click(By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Sign']"));
+    public void clickOnTheClientShipperButton() throws InterruptedException {
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Sign']"))) {
+            click(By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Sign']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Re-Sign']"));
+        Thread.sleep(5000);
     }
 
-    public void createSignatureInTheInventory() {
-        click(By.xpath("//*[contains(@resource-id, 'signature_view')]"));
+    public void createSignatureInTheInventory() throws InterruptedException {
+        //click(By.xpath("//*[contains(@resource-id, 'signature_view')]"));
+            Thread.sleep(3000);
+            new TouchAction(driver)
+                    .press(PointOption.point(795, 901))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                    .moveTo(PointOption.point(277, 912))
+                    .release().perform();
     }
 
-    public void clickOnTheForemanDriverButton() {
-        waitForElement(15, (By.xpath("//*[contains(@resource-id,'driver_sign_survey') and @text='Sign']")));
-        click(By.xpath("//*[contains(@resource-id,'driver_sign_survey') and @text='Sign']"));
+    public void clickOnTheForemanDriverButton() throws InterruptedException {
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'driver_sign_survey') and @text='Sign']"))) {
+            click(By.xpath("//*[contains(@resource-id,'driver_sign_survey') and @text='Sign']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'driver_sign_survey') and @text='Re-Sign']"));
+        Thread.sleep(5000);
     }
 
     public void clickOnTheOKButtonOnThePopUp() {
@@ -464,14 +473,6 @@ public class ApplicationManager {
         click(By.xpath("//*[contains(@resource-id,'general_schedules') and @text='Schedules']"));
     }
 
-    public void clickOnTheOriginButton() {
-        click(By.xpath("//*[contains(@resource-id,'general_origin') and @text='Origin']"));
-    }
-
-    public void clickOnTheDestinationButton() {
-        click(By.xpath("//*[contains(@resource-id,'general_destination') and @text='Destination']"));
-    }
-
     public void typeNewBarcodeNumber(String text) {
         if (text != null) {
             driver.findElement(By.id("checker_filter_field_id")).click();
@@ -498,6 +499,22 @@ public class ApplicationManager {
 
     public void clickOnTheOKLabelButton() {
         click(By.id("ok_label_btn"));
+    }
+
+    public void swipeScreenDownMenu() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement panel = driver.findElement(By.id("hamburger_view"));
+        Dimension dimension = panel.getSize();
+        Double ScreenHeightStart = dimension.getHeight() * 0.7;
+        int scrollStart = ScreenHeightStart.intValue();
+        Double ScreenHeightEnd = dimension.getHeight() * 0.2;
+        int scrollEnd = ScreenHeightEnd.intValue();
+
+        new TouchAction(driver)
+                .press(PointOption.point(0, scrollStart))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(0, scrollEnd))
+                .release().perform();
     }
 
     public void swipeScreenDown() throws InterruptedException {
@@ -530,5 +547,93 @@ public class ApplicationManager {
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
                 .moveTo(PointOption.point(0, scrollEnd))
                 .release().perform();
+    }
+
+    public void swipeScreenToTheLeft() throws InterruptedException {
+        WebElement panel = driver.findElement(By.id("pager"));
+        Dimension dimension = panel.getSize();
+
+        int anchor = panel.getSize().getHeight() / 2;
+
+        Double ScreenWidthStart = dimension.getWidth() * 0.9;
+        int scrollStart = ScreenWidthStart.intValue();
+
+        Double ScreenWidthEnd = dimension.getWidth() * 0.1;
+        int scrollEnd = ScreenWidthEnd.intValue();
+
+        new TouchAction(driver)
+                .press(point(scrollStart, anchor))
+                .waitAction(waitOptions(ofSeconds(1)))
+                .moveTo(point(scrollEnd, anchor))
+                .release().perform();
+
+        Thread.sleep(3000);
+    }
+
+    public void swipeScreenToTheRight() throws InterruptedException {
+        WebElement panel = driver.findElement(By.id("pager"));
+        Dimension dimension = panel.getSize();
+
+        int anchor = panel.getSize().getHeight() / 2;
+
+        Double ScreenWidthStart = dimension.getWidth() * 0.1;
+        int scrollStart = ScreenWidthStart.intValue();
+
+        Double ScreenWidthEnd = dimension.getWidth() * 0.9;
+        int scrollEnd = ScreenWidthEnd.intValue();
+
+        new TouchAction(driver)
+                .press(point(scrollStart, anchor))
+                .waitAction(waitOptions(ofSeconds(1)))
+                .moveTo(point(scrollEnd, anchor))
+                .release().perform();
+
+        Thread.sleep(3000);
+    }
+
+    public void clickToAddSkidButton() {
+        click(By.id("fab_skid_add"));
+    }
+
+    public void clickToTheSkidContentButton() {
+        click(By.id("skid_contents_button"));
+    }
+
+    public void clickToTheLoadSkidButton() {
+        click(By.id("load_skid"));
+    }
+
+    public void clickToTheSkidOKButton() {
+        click(By.id("skid_ok_button"));
+    }
+
+    public void clickToTheInspectionInfoButton() {
+        click(By.xpath("//*[contains(@resource-id,'inspection_info') and @text='Inspection Info']"));
+    }
+
+    public void clickOnTheMenuButton() {
+        waitForElement(25,(By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']")));
+        click(By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"));
+    }
+
+    public void clickToTheGeneralInfo() {
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='General Info']"));
+    }
+
+    public void clickOnTheSummaries() {
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Summaries']"));
+    }
+
+
+    public void clickOnTheAdditionalServicesButton() {
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Additional Services']"));
+    }
+
+    public void clickOnTheBackToJobListButton() {
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Back to Job List']"));
+    }
+
+    public void clickToTheSignAndSendButton() {
+        click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Sign And Send']"));
     }
 }

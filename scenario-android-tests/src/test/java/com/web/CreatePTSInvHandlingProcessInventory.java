@@ -1,8 +1,7 @@
 package com.web;
 
-import org.openqa.selenium.By;
+import org.junit.Test;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -40,7 +40,7 @@ public class ApplicationManager {
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/Voxme Estimator Universal_v10.2 (Build 404).apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeEstimator-v10.3_Build_409.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -89,6 +89,27 @@ public class ApplicationManager {
     }
 
     public void swipeScreenToTheLeft() throws InterruptedException {
+        WebElement panel = driver.findElement(By.id("pager"));
+        Dimension dimension = panel.getSize();
+
+        int anchor = panel.getSize().getHeight() / 2;
+
+        Double ScreenWidthStart = dimension.getWidth() * 0.8;
+        int scrollStart = ScreenWidthStart.intValue();
+
+        Double ScreenWidthEnd = dimension.getWidth() * 0.2;
+        int scrollEnd = ScreenWidthEnd.intValue();
+
+        new TouchAction(driver)
+                .press(point(scrollStart, anchor))
+                .waitAction(waitOptions(ofSeconds(1)))
+                .moveTo(point(scrollEnd, anchor))
+                .release().perform();
+
+        Thread.sleep(3000);
+    }
+
+    public void swipeScreenToTheRight() throws InterruptedException {
         WebElement panel = driver.findElement(By.id("pager"));
         Dimension dimension = panel.getSize();
 
@@ -169,7 +190,7 @@ public class ApplicationManager {
         click(By.id("mode_field"));
         Thread.sleep(500);
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
-                ".scrollIntoView(" + "new UiSelector().text(\"Sea\"));").click();
+                ".scrollIntoView(" + "new UiSelector().text(\"Sea-US\"));").click();
     }
 
     public void clickOnTheStdItemsButton() {
@@ -178,8 +199,8 @@ public class ApplicationManager {
 
     public void selectStandardItemFromList() {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
-                ".scrollIntoView(" + "new UiSelector().text(\"Chest (10,00)\"));").click();
-        click(By.xpath("//*[@text='Chest (10,00)']"));
+                ".scrollIntoView(" + "new UiSelector().text(\"Basket (6.00)\"));").click();
+        click(By.xpath("//*[@text='Basket (6.00)']"));
     }
 
     public void addStandardItems() {
@@ -187,7 +208,7 @@ public class ApplicationManager {
     }
 
     public void showParametersOfTheItem() {
-        click(By.xpath("//*[contains(@resource-id,'name') and @text='Chest']"));
+        click(By.xpath("//*[contains(@resource-id,'name') and @text='Basket']"));
     }
 
     public void clickOnThePhotoIcon() {

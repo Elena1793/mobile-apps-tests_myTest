@@ -19,9 +19,9 @@ public class CreateSurveyTest extends TestBase{
         app.selectStandardItemFromList();
         app.addStandardItems();
         app.showParametersOfTheItem();
-        app.clickOnThePhotoIcon();
-        app.selectAnAction();
-        app.attachPhotoToObject();
+        //app.clickOnThePhotoIcon();
+        //app.selectAnAction();
+        //app.attachPhotoToObject();
         app.clickOnThePackageDropDown();
         app.addPackageToTheNewItem();
         app.addPBO();

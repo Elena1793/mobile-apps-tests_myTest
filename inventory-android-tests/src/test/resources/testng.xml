@@ -4,6 +4,10 @@
     <test name="Inventory" >
         <classes>
             <class name="com.inventory.tests.CreateInventoryTest" />
+            <class name="com.inventory.tests.DownloadInventoryTest" />
+            <class name="com.inventory.tests.UploadInventoryTest" />
+            <class name="com.inventory.tests.SignAndSendTest" />
+            <class name="com.inventory.tests.CheckInventoryStandaloneTest" />
         </classes>
     </test>
 </suite>
