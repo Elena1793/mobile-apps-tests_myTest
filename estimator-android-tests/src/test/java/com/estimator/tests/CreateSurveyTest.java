@@ -19,9 +19,9 @@ public class CreateSurveyTest extends TestBase{
         app.selectStandardItemFromList();
         app.addStandardItems();
         app.showParametersOfTheItem();
-        //app.clickOnThePhotoIcon();
+        app.clickOnThePhotoIcon();
         //app.selectAnAction();
-        //app.attachPhotoToObject();
+        app.attachPhotoToObject();
         app.clickOnThePackageDropDown();
         app.addPackageToTheNewItem();
         app.addPBO();
@@ -68,7 +68,7 @@ public class CreateSurveyTest extends TestBase{
         app.selectParkingType();
         app.swipeScreenDown();
         app.clickOnThePhotoIcon();
-        app.selectAnAction();
+        //app.selectAnAction();
         app.attachPhotoToObject();
         app.swipeScreenToTheLeft();
         app.fillTheCompanyNameField();
@@ -92,7 +92,7 @@ public class CreateSurveyTest extends TestBase{
         app.selectParkingType();
         app.swipeScreenDown();
         app.clickOnThePhotoIcon();
-        app.selectAnAction();
+        //app.selectAnAction();
         app.attachPhotoToObject();
         app.clickOnTheCheckMarkButton();
         app.clickToTheReturnUpButton();
@@ -134,7 +134,7 @@ public class CreateSurveyTest extends TestBase{
         app.clickOnTheAddDocumentButton();
         app.fillDocumentNameField();
         app.clickOnThePhotoIconInTheDocumentSection();
-        app.selectAnAction();
+        //app.selectAnAction();
         app.attachPhotoToObject();
         app.clickToTheReturnUpButton();
         app.clickOnTheShareIcon();

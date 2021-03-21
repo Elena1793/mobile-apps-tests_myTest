@@ -7,10 +7,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,14 +30,17 @@ public class ApplicationManager {
     public void start() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "BH90015L8Z");
-        capabilities.setCapability("platformVersion", "9");
+        //capabilities.setCapability("deviceName", "BH90015L8Z");                   //emulator for Android
+        capabilities.setCapability("deviceName", "CB5A21NP7A");   //tablet Sony Xperia Z3
+        //capabilities.setCapability("platformVersion", "9");                       //emulator for Android
+        capabilities.setCapability("platformVersion", "6");       //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.estimator.tablet");
         capabilities.setCapability("appActivity", "com.voxme.estimator.tablet.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
-        capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/VoxmeEstimator-v10.3_Build_409.apk");
+        //capabilities.setCapability("unlockKey", "9999");
+        capabilities.setCapability("unlockKey", "9955");
+        capabilities.setCapability("app", "C:/Tools/VoxmeEstimator-v10.4.2_Build_412.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -59,8 +59,12 @@ public class ApplicationManager {
     }
 
     public void attachPhotoToObject() throws InterruptedException {
-        waitForElement(10, By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
-        click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        //waitForElement(10, By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        //click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
         Thread.sleep(5000);
     }
 
@@ -158,9 +162,12 @@ public class ApplicationManager {
         return driver.findElements(locator).size() > 0;
     }
 
-    public void clickToTheReturnUpButton() {
-        waitForElement(10, By.xpath("//*[@content-desc='Перейти вверх']"));
-        click(By.xpath("//*[@content-desc='Перейти вверх']"));
+    public void clickToTheReturnUpButton() throws InterruptedException {
+        if (isElementPresent(By.xpath("//*[@content-desc='Navigate up']"))) {
+            click(By.xpath("//*[@content-desc='Navigate up']"));
+            Thread.sleep(1000);
+        } else
+            driver.findElement(By.xpath("//*[@content-desc='Перейти вверх']")).click();
     }
 
     public void clickOnTheCreateSurveyButton() {
@@ -190,7 +197,7 @@ public class ApplicationManager {
         click(By.id("mode_field"));
         Thread.sleep(500);
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
-                ".scrollIntoView(" + "new UiSelector().text(\"Sea-US\"));").click();
+                ".scrollIntoView(" + "new UiSelector().text(\"Sea\"));").click();
     }
 
     public void clickOnTheStdItemsButton() {
@@ -204,7 +211,8 @@ public class ApplicationManager {
     }
 
     public void addStandardItems() {
-        click(By.xpath("//*[contains(@resource-id,'cancel') and @text='ADD']"));
+        //click(By.xpath("//*[contains(@resource-id,'cancel') and @text='ADD']"));
+        click(By.xpath("//*[contains(@resource-id,'cancel') and @text='Add']"));
     }
 
     public void showParametersOfTheItem() {
@@ -218,17 +226,13 @@ public class ApplicationManager {
             click(By.id("address_photo"));
     }
 
-    public void selectAnAction() {
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Take Photo']"));
-    }
-
     public void clickOnThePackageDropDown() {
         click(By.id("pkgSpinner"));
     }
 
     public void addPackageToTheNewItem() {
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
-                ".scrollIntoView(" + "new UiSelector().text(\"Small carton (5,00)\"));").click();
+                ".scrollIntoView(" + "new UiSelector().text(\"Small carton (10.00)\"));").click();
     }
 
     public void addPBO() {
@@ -325,7 +329,8 @@ public class ApplicationManager {
 
     public void selectTypeOhTheElevator() {
         click(By.id("access_el_type"));
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Electrical']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Mechanical']"));
+        //click(By.xpath("//*[contains(@resource-id,'text1') and @text='Electrical']"));
     }
 
     public void selectResidenceType() {
@@ -363,7 +368,8 @@ public class ApplicationManager {
 
     public void selectParkingType() {
         click(By.id("access_parking_type"));
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Permit parking']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Green Zone']"));
+        //click(By.xpath("//*[contains(@resource-id,'text1') and @text='Permit parking']"));
     }
 
     public void clickOnTheCheckMarkButton() {
@@ -455,7 +461,7 @@ public class ApplicationManager {
     }
 
     public void fillDocumentNameField() {
-        type(By.id("document_name"), "testFile");
+        type(By.id("document_name"), "testFile_1");
     }
 
     public void clickOnTheShareIcon() {
@@ -466,8 +472,14 @@ public class ApplicationManager {
         click(By.xpath("//*[contains(@resource-id,'sign_survey') and @text='Sign']"));
     }
 
-    public void createSignatureOnSurvey() {
-        click(By.xpath("//*[contains(@resource-id,'signature_view')]"));
+    public void createSignatureOnSurvey() throws InterruptedException {
+        //click(By.xpath("//*[contains(@resource-id,'signature_view')]"));
+        Thread.sleep(3000);
+        new TouchAction(driver)
+                .press(PointOption.point(795, 901))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(277, 912))
+                .release().perform();
     }
 
     public void clickOnTheUploadButton() {
@@ -517,7 +529,7 @@ public class ApplicationManager {
         if (isElementPresent(By.xpath("//*[contains(@resource-id,'button1') and @text='Yes']"))) {
             click(By.xpath("//*[contains(@resource-id,'button1') and @text='Yes']"));
         } else
-            click(By.xpath("//*[contains(@resource-id,'cancel') and @text='CANCEL']"));
+            click(By.xpath("//*[contains(@resource-id,'cancel') and @text='Cancel']"));
     }
 
     public void checkCommentField() {
@@ -534,5 +546,9 @@ public class ApplicationManager {
 
     public void deselectSurveyFromDiscovery() {
 
+    }
+
+    public void setOrientation() {
+        driver.rotate(ScreenOrientation.PORTRAIT);
     }
 }

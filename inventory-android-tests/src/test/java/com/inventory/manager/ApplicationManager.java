@@ -35,15 +35,18 @@ public class ApplicationManager {
     public void start() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        //capabilities.setCapability("deviceName", "emulator-5554");
-        capabilities.setCapability("deviceName", "BH90015L8Z");
-        capabilities.setCapability("platformVersion", "9");
-        //capabilities.setCapability("platformVersion", "8");
+        //capabilities.setCapability("deviceName", "emulator-5554");              //emulator for Android
+        capabilities.setCapability("deviceName", "CB5A21NP7A"); //tablet Sony Xperia Z3
+        //capabilities.setCapability("deviceName", "BH90015L8Z");                 //phone Sony Xperia XZ1
+        //capabilities.setCapability("platformVersion", "9");                     //phone Sony Xperia XZ1
+        //capabilities.setCapability("platformVersion", "8");                     //emulator for Android
+        capabilities.setCapability("platformVersion", "6");     //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.inventory.tablet");
         capabilities.setCapability("appActivity", "com.voxme.inventory.tablet.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
-        capabilities.setCapability("unlockKey", "9999");
+        //capabilities.setCapability("unlockKey", "9999");
+        capabilities.setCapability("unlockKey", "9955");
         capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.3.3_Build_632.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -59,11 +62,11 @@ public class ApplicationManager {
     //TODO
     public void attachPhotoToTheNewItem() throws InterruptedException {
         click(By.id("article_photo_btn"));
-        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
-            click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
         } else
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
-            click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
+            //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
         Thread.sleep(3000);
     }
 
@@ -418,11 +421,11 @@ public class ApplicationManager {
         driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
     }
     //TODO
-    public void attachPhotoToThePropertyForPacking() throws InterruptedException {
+    public void attachPhotoConditions() throws InterruptedException {
         waitForElement(25,(By.id("add_photo")));
         click(By.id("add_photo"));
-        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
-            click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
         } else
             //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
         click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
@@ -431,8 +434,8 @@ public class ApplicationManager {
     //TODO
     public void attachPhotoToTheNewSkid() throws InterruptedException {
         click(By.id("skid_photo_btn"));
-        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
-            click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
         } else
             //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
         click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
@@ -441,8 +444,8 @@ public class ApplicationManager {
     //TODO
     public void attachPhotoToTheDocumentSection() throws InterruptedException {
         click(By.id("add_photo_btn"));
-        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"))) {
-            click(By.xpath("//android.widget.FrameLayout[@content-desc='Клавиша камеры']"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
         } else
             //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
         click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device

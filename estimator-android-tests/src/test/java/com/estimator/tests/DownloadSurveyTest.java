@@ -64,8 +64,5 @@ public class DownloadSurveyTest extends TestBase {
         app.clickToTheReturnUpButton();
         app.clickToTheReturnUpButton();
         app.clickBackToSurveys();
-        app.clickOnTheOKButtonOnThePopUp();
-        //app.deselectSurveyFromDiscovery();
-
     }
 }

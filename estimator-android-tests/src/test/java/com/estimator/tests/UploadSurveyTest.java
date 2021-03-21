@@ -6,6 +6,7 @@ public class UploadSurveyTest extends TestBase{
 
     @Test
     public void uploadNewSurveyTest() throws InterruptedException {
+        app.setOrientation();
         app.clickOnDownloadButton();
         app.clickOnTheSearchSurvey("11455");
         app.selectFoundedSurvey();
@@ -19,7 +20,6 @@ public class UploadSurveyTest extends TestBase{
         app.addStandardItems();
         app.showParametersOfTheItem();
         app.clickOnThePhotoIcon();
-        app.selectAnAction();
         app.attachPhotoToObject();
         app.clickOnThePackageDropDown();
         app.addPackageToTheNewItem();
@@ -46,12 +46,10 @@ public class UploadSurveyTest extends TestBase{
         app.swipeScreenToTheLeft();
         app.swipeScreenDown();
         app.clickOnThePhotoIcon();
-        app.selectAnAction();
         app.attachPhotoToObject();
         app.swipeScreenToTheLeft();
         app.swipeScreenDown();
         app.clickOnThePhotoIcon();
-        app.selectAnAction();
         app.attachPhotoToObject();
         app.clickOnTheCheckMarkButton();
         app.clickToTheReturnUpButton();
@@ -90,7 +88,6 @@ public class UploadSurveyTest extends TestBase{
         app.clickOnTheAddDocumentButton();
         app.fillDocumentNameField();
         app.clickOnThePhotoIconInTheDocumentSection();
-        app.selectAnAction();
         app.attachPhotoToObject();
         app.clickToTheReturnUpButton();
         app.clickOnTheShareIcon();
