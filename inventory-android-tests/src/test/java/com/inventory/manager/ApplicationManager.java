@@ -1,6 +1,7 @@
 package com.inventory.manager;
 
 import com.google.common.io.Files;
+import com.sun.jndi.toolkit.url.Uri;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -16,11 +17,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.text.View;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -42,12 +46,12 @@ public class ApplicationManager {
         //capabilities.setCapability("platformVersion", "8");                     //emulator for Android
         capabilities.setCapability("platformVersion", "6");     //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.inventory.tablet");
-        capabilities.setCapability("appActivity", "com.voxme.inventory.tablet.ui.StartupActivity");
+        capabilities.setCapability("appActivity", "com.voxme.inventory.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         //capabilities.setCapability("unlockKey", "9999");
         capabilities.setCapability("unlockKey", "9955");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.3.3_Build_632.apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.4_Build_634.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -60,7 +64,7 @@ public class ApplicationManager {
         }
     }
     //TODO
-    public void attachPhotoToTheNewItem() throws InterruptedException {
+    public void attachPhotoToTheNewItemFromCamera() throws InterruptedException {
         click(By.id("article_photo_btn"));
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
@@ -68,6 +72,11 @@ public class ApplicationManager {
             click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
             //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
         Thread.sleep(3000);
+    }
+
+    public void attachPhotoToTheNewItemFromGallery() {
+        click(By.id("article_img_gallery_btn"));
+        click((By.xpath("//*[contains(@resource-id,'date') and @text='Dec 3, 2019']")));
     }
 
     public void waitForElement(long timeout, By locator) {
@@ -239,13 +248,13 @@ public class ApplicationManager {
 
     public void addLocation() {
         click(By.id("add_location_btn"));
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Left']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Location1']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
     public void addCondition() {
         click(By.id("add_condition_btn"));
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Broken']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
@@ -272,7 +281,7 @@ public class ApplicationManager {
     }
 
     public void clickOnTheSelectConditionButtonOfPropertyBeforePacking() {
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Good']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
@@ -293,7 +302,7 @@ public class ApplicationManager {
     }
 
     public void clickOnTheSelectConditionButtonOfPropertyAfterPacking() {
-        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Bent']"));
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Good']"));
         click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
     }
 
@@ -450,6 +459,11 @@ public class ApplicationManager {
             //click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
         click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']")); // for Polina's device
         Thread.sleep(5000);
+    }
+
+    public void attachPhotoToTheDocumentSectionFromGallery() throws InterruptedException {
+        click(By.id("doc_img_gallery_btn"));
+        click((By.xpath("//*[contains(@resource-id,'date') and @text='Dec 3, 2019']")));
     }
 
     public void selectAnItemFromInventory() {

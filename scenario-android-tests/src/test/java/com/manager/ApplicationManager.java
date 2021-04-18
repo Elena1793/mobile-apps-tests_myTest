@@ -33,11 +33,11 @@ public class ApplicationManager {
         capabilities.setCapability("platformVersion", "9");
         //capabilities.setCapability("platformVersion", "8");
         capabilities.setCapability("appPackage", "com.voxme.inventory.tablet");
-        capabilities.setCapability("appActivity", "com.voxme.inventory.tablet.ui.StartupActivity");
+        capabilities.setCapability("appActivity", "com.voxme.inventory.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.3_Build_629.apk");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.4_Build_634.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
