@@ -10,10 +10,10 @@ public class SignAndSendTest extends TestBase {
         app.clickOnTheReportInventoryButton();
         app.swipeScreenDown();
         app.clickOnTheClientShipperButton();
-        app.createSignatureInTheInventory();
+        app.createSignature();
         app.clickToTheReturnUpButton();
         app.clickOnTheForemanDriverButton();
-        app.createSignatureInTheInventory();
+        app.createSignature();
         app.clickToTheReturnUpButton();
         app.swipeScreenUp();
         app.clickOnTheUploadButton();

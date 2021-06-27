@@ -9,7 +9,10 @@ public class CreateInventoryTest extends TestBase {
 
     @Test
     public void createNewInventory() throws InterruptedException, IOException {
+        //app.addDictionaryFile();
+        //app.addConfigurationFile();
         app.clickOnTheCreateNewInventoryButton();
+        app.selectAnAction();
         app.type(By.id("inventory_name"),"Connor");
         app.type(By.id("inventory_id"), "2189-1-1");
         app.hideKeyboard();
@@ -30,8 +33,8 @@ public class CreateInventoryTest extends TestBase {
         app.addCondition();
         app.addLocation();
         app.hideKeyboard();
-        app.attachPhotoToTheNewItemFromGallery();
-        app.attachPhotoToTheNewItemFromCamera();
+        app.attachPhotoFromGallery();
+        app.attachPhotoFromCamera();
         app.clickOnTheDeviceReturnButton();
         app.clickToTheReturnUpButton();
         //app.clickToTheReturnUpButton();
@@ -42,13 +45,13 @@ public class CreateInventoryTest extends TestBase {
         app.hideKeyboard();
         app.fillConditionField();
         app.hideKeyboard();
-        app.attachPhotoToTheNewItemFromGallery();
+        app.attachPhotoFromGallery();
         app.attachPhotoConditions();
         //app.clickOnTheDeviceReturnButton();
         app.selectPropertyBeforePacking();
         app.clickOnTheSelectConditionButtonOfPropertyBeforePacking();
         app.clickOnPropertyConditionsFieldAfterPacking();
-        app.attachPhotoToTheNewItemFromGallery();
+        app.attachPhotoFromGallery();
         app.attachPhotoConditions();
         //app.clickOnTheDeviceReturnButton();
         app.selectPropertyAfterPacking();
@@ -61,7 +64,7 @@ public class CreateInventoryTest extends TestBase {
         app.clickToTheSkidContentButton();
         app.clickToTheLoadSkidButton();
         app.clickToTheReturnUpButton();
-        app.attachPhotoToTheNewItemFromGallery();
+        app.attachPhotoFromGallery();
         app.attachPhotoToTheNewSkid();
         //app.clickOnTheDeviceReturnButton();
         app.clickToTheSkidOKButton();
@@ -82,9 +85,23 @@ public class CreateInventoryTest extends TestBase {
         app.clickToTheReturnUpButton();
         app.clickOnTheMenuButton();
         app.clickOnTheServices();
+        app.openServiceList();
+        app.addContextText();
+        app.addValueFromList();
+        app.attachPhotoFromCameraToService();
+        app.attachSignature();
+        app.clickToTheReturnUpButton();
         app.clickToTheReturnUpButton();
         app.clickOnTheMenuButton();
         app.clickOnTheAdditionalInfo();
+        app.openFirstPropertiesList();
+        app.addValueFromList();
+        app.attachSignature();
+        app.clickToTheReturnUpButton();
+        app.addQuestionText();
+        app.clickOnTheOKButton();
+        app.openSecondPropertiesList();
+        app.attachPhotoFromCameraToService();
         app.clickToTheReturnUpButton();
         app.clickOnTheMenuButton();
         app.clickOnTheDocuments();
@@ -104,10 +121,10 @@ public class CreateInventoryTest extends TestBase {
         app.clickToTheSignAndSendButton();
         app.swipeScreenDown();
         app.clickOnTheClientShipperButton();
-        app.createSignatureInTheInventory();
+        app.createSignature();
         app.clickToTheReturnUpButton();
         app.clickOnTheForemanDriverButton();
-        app.createSignatureInTheInventory();
+        app.createSignature();
         app.clickToTheReturnUpButton();
         app.swipeScreenUp();
         app.clickOnTheUploadButton();

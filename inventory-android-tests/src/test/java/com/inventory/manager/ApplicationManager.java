@@ -1,7 +1,6 @@
 package com.inventory.manager;
 
 import com.google.common.io.Files;
-import com.sun.jndi.toolkit.url.Uri;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -9,22 +8,19 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.text.View;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -39,19 +35,20 @@ public class ApplicationManager {
     public void start() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        //capabilities.setCapability("deviceName", "emulator-5554");              //emulator for Android
-        capabilities.setCapability("deviceName", "CB5A21NP7A"); //tablet Sony Xperia Z3
-        //capabilities.setCapability("deviceName", "BH90015L8Z");                 //phone Sony Xperia XZ1
-        //capabilities.setCapability("platformVersion", "9");                     //phone Sony Xperia XZ1
-        //capabilities.setCapability("platformVersion", "8");                     //emulator for Android
-        capabilities.setCapability("platformVersion", "6");     //tablet Sony Xperia Z3
+        //capabilities.setCapability("deviceName", "emulator-5554");                              //emulator for Android
+        //capabilities.setCapability("deviceName", "CB5A21NP7A");                                 //tablet Sony Xperia Z3
+        capabilities.setCapability("deviceName", "BH90015L8Z");                 //phone Sony Xperia XZ1
+        capabilities.setCapability("platformVersion", "9");                     //phone Sony Xperia XZ1
+        //capabilities.setCapability("platformVersion", "8");                                     //emulator for Android
+        //capabilities.setCapability("platformVersion", "6");                                     //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.inventory.tablet");
         capabilities.setCapability("appActivity", "com.voxme.inventory.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
-        //capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("unlockKey", "9955");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.4_Build_634.apk");
+        capabilities.setCapability("unlockKey", "9999");
+        //capabilities.setCapability("unlockKey", "9955");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.4_Build_642.apk");
+        capabilities.setCapability("sauceLabsImageInjectionEnabled", true);
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -64,7 +61,7 @@ public class ApplicationManager {
         }
     }
     //TODO
-    public void attachPhotoToTheNewItemFromCamera() throws InterruptedException {
+    public void attachPhotoFromCamera() throws InterruptedException {
         click(By.id("article_photo_btn"));
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
@@ -74,9 +71,10 @@ public class ApplicationManager {
         Thread.sleep(3000);
     }
 
-    public void attachPhotoToTheNewItemFromGallery() {
+    public void attachPhotoFromGallery() {
         click(By.id("article_img_gallery_btn"));
-        click((By.xpath("//*[contains(@resource-id,'date') and @text='Dec 3, 2019']")));
+        click(By.xpath("//*[contains(@resource-id,'icon_thumb')]"));
+        //click((By.xpath("//*[contains(@resource-id,'date') and @text='Dec 3, 2019']")));
     }
 
     public void waitForElement(long timeout, By locator) {
@@ -166,9 +164,10 @@ public class ApplicationManager {
     }
 
     public void touchOnTheCreatedInventoryOnDiscovery() {
+        waitForElement(2000, By.xpath("//*[contains(@resource-id,'name') and @text='Anton Nakonechnyi']"));
         TouchAction touch = new TouchAction(driver);
-        WebElement el = driver.findElement(By.xpath("//*[contains(@resource-id,'name') and @text='AddLabels Manually']"));
-        touch.longPress(LongPressOptions.longPressOptions().withElement(element(el)).withDuration(Duration.ofMillis(1000)))
+        WebElement el = driver.findElement(By.xpath("//*[contains(@resource-id,'name') and @text='Anton Nakonechnyi']"));
+        touch.longPress(LongPressOptions.longPressOptions().withElement(element(el)).withDuration(Duration.ofMillis(2000)))
                 .release()
                 .perform();
     }
@@ -178,7 +177,7 @@ public class ApplicationManager {
     }
 
     public void typeQuantityOnTheAddField() {
-        type(By.id("add_label_no"), "1");
+        type(By.id("add_label_no"), "2");
     }
 
     public void clickOnTheCheckButtonOnTheDiscovery() {
@@ -205,7 +204,7 @@ public class ApplicationManager {
         click(By.id("pkgSpinner"));
         Thread.sleep(1000);
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
-                ".scrollIntoView(" + "new UiSelector().text(\"Small carton\"));").click();
+                ".scrollIntoView(" + "new UiSelector().text(\"4 Cubes\"));").click();
     }
 
     public void selectPBOForNewPiece() {
@@ -340,9 +339,14 @@ public class ApplicationManager {
 
     public void clickOnTheSelectSkidDropDown() {
         click(By.id("skidType"));
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-                + ".resourceId(\"android:id/text1\")).scrollIntoView("
-                + "new UiSelector().text(\"Pallet\"));").click();
+    }
+
+    public void selectContainer() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Container 40 ft']"));
+    }
+
+    public void selectLiftvan() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Liftvan']"));
     }
 
     public void clickOnTheLoadSkidButton() {
@@ -402,7 +406,7 @@ public class ApplicationManager {
         Thread.sleep(5000);
     }
 
-    public void createSignatureInTheInventory() throws InterruptedException {
+    public void createSignature() throws InterruptedException {
         //click(By.xpath("//*[contains(@resource-id, 'signature_view')]"));
             Thread.sleep(3000);
             new TouchAction(driver)
@@ -504,20 +508,37 @@ public class ApplicationManager {
         click(By.id("check_btn"));
     }
 
-    public void clickOnTheBoxIconToCreateLU() {
+    public void clickOnTheTruckIconToCreateLU() {
         click(By.id("loader"));
     }
 
     public void selectLUFromDropDown() {
-        click(By.xpath("//*[@text='Not Loaded']"));
+        //click(By.xpath("//*[@text='Not Loaded']"));
+        if (isElementPresent(By.xpath("//*[@text='Not Loaded']"))) {
+            click(By.xpath("//*[@text='Not Loaded']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'skidSpinner') and @text='1 - Container 40 ft']"));
+
     }
 
     public void clickOnTheSelectedSkidInTheDropDown() {
         click(By.xpath("//*[contains(@resource-id,'text1') and @text='1 - Pallet']"));
     }
 
+    public void clickOnTheSelectedSkidInTheDropDownContainer() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='1 - Container 40 ft']"));
+    }
+
+    public void clickOnTheSelectedSkidInTheDropDownLiftvan() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='2 - Liftvan']"));
+    }
+
     public void clickOnTheOKLabelButton() {
         click(By.id("ok_label_btn"));
+    }
+
+    public void clickOnTheOKLabelButtonSkid() {
+        click(By.id("ok_label_btn1"));
     }
 
     public void swipeScreenDownMenu() throws InterruptedException {
@@ -543,6 +564,22 @@ public class ApplicationManager {
         Double ScreenHeightStart = dimension.getHeight() * 0.7;
         int scrollStart = ScreenHeightStart.intValue();
         Double ScreenHeightEnd = dimension.getHeight() * 0.2;
+        int scrollEnd = ScreenHeightEnd.intValue();
+
+        new TouchAction(driver)
+                .press(PointOption.point(0, scrollStart))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(0, scrollEnd))
+                .release().perform();
+    }
+
+    public void swipeSkidScreenUp() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement panel = driver.findElement(By.id("simpleItemsList"));
+        Dimension dimension = panel.getSize();
+        Double ScreenHeightStart = dimension.getHeight() * 0.2;
+        int scrollStart = ScreenHeightStart.intValue();
+        Double ScreenHeightEnd = dimension.getHeight() * 0.7;
         int scrollEnd = ScreenHeightEnd.intValue();
 
         new TouchAction(driver)
@@ -654,5 +691,77 @@ public class ApplicationManager {
 
     public void clickToTheSignAndSendButton() {
         click(By.xpath("//*[contains(@resource-id,'submenu') and @text='Sign And Send']"));
+    }
+
+    public void addDictionaryFile() throws IOException {
+        driver.pushFile(
+                "//This PC/Xperia Z3 Tablet Compact/Internal storage/Android/data/com.voxme.inventory.tablet/files/Dictionary.xml",
+                new File("C:/Tools/Dictionary.xml"));
+    }
+
+    public void addConfigurationFile() throws IOException {
+        driver.pushFile(
+                "//This PC/Xperia Z3 Tablet Compact/Internal storage/Android/data/com.voxme.inventory.tablet/files/Configuration.xml",
+                new File("C:/Tools/Configuration.xml"));
+    }
+
+    public void openServiceList() {
+        click(By.xpath("//*[contains(@resource-id,'group_name') and @text='Group3-US']"));
+    }
+
+    public void addContextText() {
+        click(By.id("item_quantity"));
+        type(By.id("item_quantity"), "ContextTEST");
+    }
+
+    public void addValueFromList() {
+        click(By.xpath("//*[contains(@resource-id,'item_value') and @text='Tap to select value']"));
+        if (isElementPresent(By.xpath("//*[contains(@resource-id,'text1') and @text='service1']"))) {
+            click(By.xpath("//*[contains(@resource-id,'text1') and @text='service1']"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'text1') and @text='value1']"));
+    }
+
+    public void attachSignature() throws InterruptedException {
+        click(By.id("signature_view"));
+        Thread.sleep(3000);
+        new TouchAction(driver)
+                .press(PointOption.point(795, 901))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(277, 912))
+                .release().perform();
+    }
+
+    public void attachPhotoFromCameraToService() throws InterruptedException {
+        click(By.id("photo_thumbnail"));
+        if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
+            click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
+        } else
+            click(By.xpath("//*[contains(@resource-id,'NONE') and @text='Shutter']"));
+        //click(By.xpath("//*[contains(@resource-id,'okay') and @text='OK']"));
+        Thread.sleep(3000);
+
+    }
+
+    public void openFirstPropertiesList() {
+        click(By.xpath("//*[contains(@resource-id,'group_name') and @text='Group1-US']"));
+    }
+
+    public void addQuestionText() {
+        click(By.xpath("//*[contains(@resource-id,'item_value') and @text='Tap to edit']"));
+        type(By.id("value_edit"), "QuestionTEST");
+
+    }
+
+    public void clickOnTheOKButton() {
+        click(By.xpath("//*[contains(@resource-id,'button1') and @text='OK']"));
+    }
+
+    public void openSecondPropertiesList() {
+        click(By.xpath("//*[contains(@resource-id,'group_name') and @text='Lena_GroupNameTransaction-US']"));
+    }
+
+    public void selectAnAction() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='New Inventory']"));
     }
 }

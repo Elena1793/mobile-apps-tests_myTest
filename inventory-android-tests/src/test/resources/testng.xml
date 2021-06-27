@@ -7,7 +7,7 @@
             <class name="com.inventory.tests.DownloadInventoryTest" />
             <class name="com.inventory.tests.UploadInventoryTest" />
             <class name="com.inventory.tests.SignAndSendTest" />
-            <class name="com.inventory.tests.CheckInventoryStandaloneTest" />
+            <class name="com.inventory.tests.CheckInventoryTest" />
         </classes>
     </test>
 </suite>
