@@ -8,6 +8,10 @@
             <class name="com.inventory.tests.UploadInventoryTest" />
             <class name="com.inventory.tests.SignAndSendTest" />
             <class name="com.inventory.tests.CheckInventoryTest" />
+            <class name="com.inventory.tests.UserRegistrationTest" />
+            <class name="com.inventory.environments.Core" />
+            <class name="com.inventory.environments.Dev" />
+            <class name="com.inventory.environments.Prod" />
         </classes>
     </test>
 </suite>

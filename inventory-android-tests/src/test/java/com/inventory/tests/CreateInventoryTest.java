@@ -12,7 +12,7 @@ public class CreateInventoryTest extends TestBase {
         //app.addDictionaryFile();
         //app.addConfigurationFile();
         app.clickOnTheCreateNewInventoryButton();
-        app.selectAnAction();
+        //app.selectAnAction();
         app.type(By.id("inventory_name"),"Connor");
         app.type(By.id("inventory_id"), "2189-1-1");
         app.hideKeyboard();
@@ -33,7 +33,7 @@ public class CreateInventoryTest extends TestBase {
         app.addCondition();
         app.addLocation();
         app.hideKeyboard();
-        app.attachPhotoFromGallery();
+        //app.attachPhotoFromGallery();
         app.attachPhotoFromCamera();
         app.clickOnTheDeviceReturnButton();
         app.clickToTheReturnUpButton();
@@ -45,13 +45,13 @@ public class CreateInventoryTest extends TestBase {
         app.hideKeyboard();
         app.fillConditionField();
         app.hideKeyboard();
-        app.attachPhotoFromGallery();
+        //app.attachPhotoFromGallery();
         app.attachPhotoConditions();
         //app.clickOnTheDeviceReturnButton();
         app.selectPropertyBeforePacking();
         app.clickOnTheSelectConditionButtonOfPropertyBeforePacking();
         app.clickOnPropertyConditionsFieldAfterPacking();
-        app.attachPhotoFromGallery();
+        //app.attachPhotoFromGallery();
         app.attachPhotoConditions();
         //app.clickOnTheDeviceReturnButton();
         app.selectPropertyAfterPacking();
@@ -64,7 +64,7 @@ public class CreateInventoryTest extends TestBase {
         app.clickToTheSkidContentButton();
         app.clickToTheLoadSkidButton();
         app.clickToTheReturnUpButton();
-        app.attachPhotoFromGallery();
+        //app.attachPhotoFromGallery();
         app.attachPhotoToTheNewSkid();
         //app.clickOnTheDeviceReturnButton();
         app.clickToTheSkidOKButton();
@@ -86,7 +86,8 @@ public class CreateInventoryTest extends TestBase {
         app.clickOnTheMenuButton();
         app.clickOnTheServices();
         app.openServiceList();
-        app.addContextText();
+        //app.addServiceText();
+        //app.clickOnTheOKButton();
         app.addValueFromList();
         app.attachPhotoFromCameraToService();
         app.attachSignature();
@@ -105,10 +106,10 @@ public class CreateInventoryTest extends TestBase {
         app.clickToTheReturnUpButton();
         app.clickOnTheMenuButton();
         app.clickOnTheDocuments();
-        app.clickOnTheAddDocumentButton();
-        app.fillDocumentNameField();
-        app.hideKeyboard();
-        app.attachPhotoToTheDocumentSectionFromGallery();
+        //app.clickOnTheAddDocumentButton();
+        //app.fillDocumentNameField();
+        //app.hideKeyboard();
+        //app.attachPhotoToTheDocumentSectionFromGallery();
         app.clickOnTheAddDocumentButton();
         app.fillDocumentNameField();
         app.hideKeyboard();

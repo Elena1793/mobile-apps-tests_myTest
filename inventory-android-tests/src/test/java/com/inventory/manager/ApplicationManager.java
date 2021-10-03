@@ -8,7 +8,10 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,9 +21,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -36,18 +36,18 @@ public class ApplicationManager {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         //capabilities.setCapability("deviceName", "emulator-5554");                              //emulator for Android
-        //capabilities.setCapability("deviceName", "CB5A21NP7A");                                 //tablet Sony Xperia Z3
-        capabilities.setCapability("deviceName", "BH90015L8Z");                 //phone Sony Xperia XZ1
-        capabilities.setCapability("platformVersion", "9");                     //phone Sony Xperia XZ1
+        capabilities.setCapability("deviceName", "CB5A21NP7A");                                 //tablet Sony Xperia Z3
+        //capabilities.setCapability("deviceName", "BH90015L8Z");                 //phone Sony Xperia XZ1
+        //capabilities.setCapability("platformVersion", "9");                     //phone Sony Xperia XZ1
         //capabilities.setCapability("platformVersion", "8");                                     //emulator for Android
-        //capabilities.setCapability("platformVersion", "6");                                     //tablet Sony Xperia Z3
+        capabilities.setCapability("platformVersion", "6");                                     //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.inventory.tablet");
         capabilities.setCapability("appActivity", "com.voxme.inventory.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
-        capabilities.setCapability("unlockKey", "9999");
-        //capabilities.setCapability("unlockKey", "9955");
-        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.4_Build_642.apk");
+        //capabilities.setCapability("unlockKey", "9999");
+        capabilities.setCapability("unlockKey", "9955");
+        capabilities.setCapability("app", "C:/Tools/VoxmeInventory-Redesigned-v11.5_Build_655.apk");
         capabilities.setCapability("sauceLabsImageInjectionEnabled", true);
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -456,6 +456,7 @@ public class ApplicationManager {
     }
     //TODO
     public void attachPhotoToTheDocumentSection() throws InterruptedException {
+        Thread.sleep(3000);
         click(By.id("add_photo_btn"));
         if (isElementPresent(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"))) {
             click(By.xpath("//android.widget.FrameLayout[@content-desc=\"Camera key\"]/android.widget.ImageView"));
@@ -709,9 +710,9 @@ public class ApplicationManager {
         click(By.xpath("//*[contains(@resource-id,'group_name') and @text='Group3-US']"));
     }
 
-    public void addContextText() {
-        click(By.id("item_quantity"));
-        type(By.id("item_quantity"), "ContextTEST");
+    public void addServiceText() {
+        click(By.xpath("//*[contains(@resource-id,'item_value') and @text='Tap to edit']"));
+        type(By.id("textinput_placeholder"), "ContextTEST");
     }
 
     public void addValueFromList() {
@@ -763,5 +764,114 @@ public class ApplicationManager {
 
     public void selectAnAction() {
         click(By.xpath("//*[contains(@resource-id,'text1') and @text='New Inventory']"));
+    }
+
+    public void clickOnTheSettingsButton() {
+        if (isElementPresent(By.id("settings"))) {
+            click(By.id("settings"));
+        } else
+            click(By.xpath("//*[contains@resource-id,'settings']"));
+    }
+
+    public void clickOnTheSettings() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Settings']"));
+    }
+
+    public void clickOnTheVoxmeCloud() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Voxme Cloud']"));
+    }
+
+    public void clickOnTheServerURL() {
+        click(By.id("settings_server_url"));
+    }
+
+    public void typeCoreURL() {
+        type(By.id("settings_url_address"), "mfc-core-staging.voxme.com");
+    }
+
+    public void typeProdURL() {
+        type(By.id("settings_url_address"), "mfc.voxme.com");
+    }
+
+    public void typeDevURL() {
+        type(By.id("settings_url_address"), "mfcdev.voxme.com");
+    }
+
+    public void selectProtocol() {
+        click(By.id("settings_https"));
+    }
+
+    public void typeApplication() {
+        type(By.id("settings_url_application"), "MobileExchange");
+    }
+
+    public void typeUserName(String testUser) {
+        type(By.id("cloud_username"), testUser);
+    }
+
+    public void typePassword(String testPassword) {
+        type(By.id("cloud_password"), testPassword);
+    }
+
+    public void clickOnConfigurations() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='Configuration']"));
+    }
+
+    public void clickOnTheDownloadConfigurationButton() throws InterruptedException {
+        click(By.xpath("//*[contains(@resource-id,'get_configuration') and @text='Download Configuration']"));
+        Thread.sleep(5000);
+    }
+
+    public void clickOnTheYesButton() throws InterruptedException {
+        click(By.xpath("//*[contains(@resource-id,'button1') and @text='Yes']"));
+        Thread.sleep(45000);
+    }
+
+    public void clickOnTheUserRegistration() {
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='User Registration']"));
+    }
+
+    public void typeCompanyID() {
+        type(By.id("company_id"), "voxmeinv");
+    }
+
+    public void typeCompanyName() {
+        type(By.id("company_name"), "voxme");
+    }
+
+    public void typeCompanyWebsite() {
+        type(By.id("company_website"), "www.voxme.com");
+    }
+
+    public void typeCompanyTel() {
+        type(By.id("company_phone"), "0536405770");
+    }
+
+    public void typeInventoryReturnEmail() {
+        type(By.id("settings_server_address"), "antonn@voxme.com");
+    }
+
+    public void clickOnTheLanguageDropdown() {
+        if (isElementPresent(By.id("language"))) {
+            click(By.id("language"));
+        } else
+            click(By.xpath("//*[contains@resource-id,'language']"));
+    }
+
+    public void selectLanguage() throws InterruptedException {
+        Thread.sleep(3000);
+        click(By.xpath("//*[contains(@resource-id,'text1') and @text='English']"));
+    }
+
+    public void selectUnits() {
+        click(By.xpath("//*[contains(@resource-id,'metric') and @text='Meters']"));
+    }
+
+    public void clickOnTheActivateServiceButton() {
+        click(By.xpath("//*[contains(@resource-id,'get_license') and @text='Activate Service']"));
+    }
+
+    public void typeRegistrationUserName(String userName) {
+        type(By.id("settings_user_name"), userName);
     }
 }

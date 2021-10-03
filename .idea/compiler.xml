@@ -9,13 +9,21 @@
       <module name="estimator-android-tests.test" target="1.8" />
       <module name="estimator-android-tests_main" target="1.8" />
       <module name="estimator-android-tests_test" target="1.8" />
+      <module name="git.mobile-apps-tests.scenario-android-tests.main" target="1.8" />
+      <module name="git.mobile-apps-tests.scenario-android-tests.test" target="1.8" />
       <module name="inventory-android-tests" target="1.8" />
       <module name="inventory-android-tests.main" target="1.8" />
       <module name="inventory-android-tests.test" target="1.8" />
       <module name="inventory-android-tests_main" target="1.8" />
       <module name="inventory-android-tests_test" target="1.8" />
+      <module name="mobile-apps-tests.estimator-android-tests.main" target="1.8" />
+      <module name="mobile-apps-tests.estimator-android-tests.test" target="1.8" />
+      <module name="mobile-apps-tests.inventory-android-tests.main" target="1.8" />
+      <module name="mobile-apps-tests.inventory-android-tests.test" target="1.8" />
       <module name="mobile-apps-tests.scenario-android-tests.main" target="1.8" />
       <module name="mobile-apps-tests.scenario-android-tests.test" target="1.8" />
+      <module name="mobile-apps-tests.scenario-web-tests.main" target="1.8" />
+      <module name="mobile-apps-tests.scenario-web-tests.test" target="1.8" />
       <module name="scenario-android-tests" target="1.8" />
       <module name="scenario-android-tests.main" target="1.8" />
       <module name="scenario-android-tests.test" target="1.8" />

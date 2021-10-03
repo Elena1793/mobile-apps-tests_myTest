@@ -5,12 +5,20 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/estimator-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/estimator-android-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/git.mobile-apps-tests.scenario-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/git.mobile-apps-tests.scenario-android-tests.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/git.mobile-apps-tests.scenario-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/git.mobile-apps-tests.scenario-android-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory-android-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/mobile-apps-tests.iml" filepath="$PROJECT_DIR$/.idea/mobile-apps-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.estimator-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.estimator-android-tests.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.estimator-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.estimator-android-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.inventory-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.inventory-android-tests.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.inventory-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.inventory-android-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-android-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-android-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-web-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-web-tests.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-web-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile-apps-tests.scenario-web-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scenario-android-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/scenario-android-tests.test.iml" />

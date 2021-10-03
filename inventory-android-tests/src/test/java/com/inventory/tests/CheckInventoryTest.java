@@ -6,7 +6,6 @@ public class CheckInventoryTest extends TestBase {
 
     @Test
         public void checkingAndScanningInProcess() throws InterruptedException {
-
             app.clickOnDownloadButton();
             app.clickOnTheSearchInventory("3407-4-1");
             app.selectFoundedInventory();

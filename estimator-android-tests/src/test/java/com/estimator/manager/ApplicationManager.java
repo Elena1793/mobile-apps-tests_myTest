@@ -30,17 +30,17 @@ public class ApplicationManager {
     public void start() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        //capabilities.setCapability("deviceName", "BH90015L8Z");                   //emulator for Android
-        capabilities.setCapability("deviceName", "CB5A21NP7A");   //tablet Sony Xperia Z3
-        //capabilities.setCapability("platformVersion", "9");                       //emulator for Android
-        capabilities.setCapability("platformVersion", "6");       //tablet Sony Xperia Z3
+        capabilities.setCapability("deviceName", "BH90015L8Z");                   //phone Sony Xperia XZ1
+        //capabilities.setCapability("deviceName", "CB5A21NP7A");   //tablet Sony Xperia Z3
+        capabilities.setCapability("platformVersion", "9");                       //phone Sony Xperia XZ1
+        //capabilities.setCapability("platformVersion", "6");       //tablet Sony Xperia Z3
         capabilities.setCapability("appPackage", "com.voxme.estimator.tablet");
         capabilities.setCapability("appActivity", "com.voxme.estimator.tablet.ui.StartupActivity");
         capabilities.setCapability("noReset", "true");
         capabilities.setCapability("unlockType", "pin");
-        //capabilities.setCapability("unlockKey", "9999");
-        capabilities.setCapability("unlockKey", "9955");
-        capabilities.setCapability("app", "C:/Tools/VoxmeEstimator-v10.4.2_Build_412.apk");
+        capabilities.setCapability("unlockKey", "9999");
+        //capabilities.setCapability("unlockKey", "9955");
+        capabilities.setCapability("app", "C:/Tools/VoxmeEstimator-v11.1_Build_422.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
